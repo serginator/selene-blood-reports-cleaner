@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Selene Blood Reports Cleaner</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <div>
+        <h2>input</h2>
+        <textarea name="input" id="textInput" cols="30" rows="10"></textarea>
+    </div>
+    <button id="transform">Transform</button>
+    <div>
+        <h2>output</h2>
+        <textarea name="output" id="textOutput" cols="30" rows="10"></textarea>
+    </div>
+    <script>
+        var button = document.getElementById('transform'),
+            text;
+        button.addEventListener('click', function() {
+            text = document.getElementById('textInput').value;
+            text = text.replace(/\[.*\]/g,'')
+                .replace(/\(([^)]+)\)/g, '')
+                .replace(/.,/g, ',')
+                .replace(/\s\/\s/g, '/')
+                .toLowerCase()
+                .trim();
+            document.getElementById('textOutput').value = text;
+        });
+    </script>
+</body>
+</html>
