@@ -23,7 +23,7 @@
             text = document.getElementById('textInput').value;
             text = text.replace(/\[.*\]/g,'')
                 .replace(/\(([^)]+)\)/g, '')
-                .replace(/.,/g, ',')
+                .replace(/\s,/g, ',')
                 .replace(/\s\/\s/g, '/')
                 .toLowerCase()
                 .trim();
